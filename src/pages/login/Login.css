@@ -1,0 +1,112 @@
+.Auth {
+    background-color: rgb(200, 200, 249);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.authLeft {
+    flex: 1;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.logoName {
+    display: flex;
+    align-items: center;
+}
+
+.logoName>h2 {
+    background: #295BCF;
+    background: linear-gradient(to right, #295BCF 0%, #FF7F04 73%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 55px;
+
+}
+
+.authLeft>p {
+    color: rgb(67, 53, 53);
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.icon {
+    color: #FF7F04;
+    font-size: 75px;
+    margin-right: 25px;
+}
+
+
+.authRight {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+}
+
+.form{
+    width: 50%;
+    background-color: white;
+    padding: 60px 35px;
+    border-radius: 10px;
+    position: relative;
+    
+}
+
+.fristName {
+    display: flex;
+}
+
+.fristName>input {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}:focus{
+    outline: none;
+}
+
+.userName>input {
+    width: 90%;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+.form>button{
+    color: white;
+    background-color: orange;
+    padding: 3px 12px;
+    border-radius: 8px;
+    border: 1px solid gray;
+    cursor: pointer;
+    margin: 1rem 0;
+    font-size: 16px;
+    position: absolute;
+    bottom: 15px;
+    right: 25px;
+    transition: 0.3s ease;
+}
+
+.form>button:hover{
+    background-color: white;
+    color: orange;
+}
+
+.form>h3 {
+    font-size: 20px;
+    margin-bottom: 2rem;
+    color: rgb(56, 40, 40);
+}
+
+.form>p{
+    color: gray;
+    margin: 1rem 0;
+    cursor: pointer;
+}

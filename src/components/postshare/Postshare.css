@@ -1,0 +1,94 @@
+.postshare{
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: rgba(248, 249, 252, 0.534);
+    border-radius: 10px;
+    overflow: hidden;
+    top: 0;
+    position: sticky;
+}
+
+.postshareTop {
+    display: flex;
+    justify-content: center;
+    margin: 0.5rem 0;
+}
+
+.postshareTop>img {
+    width: 30px;
+    height: 30px;border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.postshareTop>input {
+    width: 60%;
+    padding: 8px 25px;
+    border-radius: 8px;
+    border: none;
+}
+
+.postshareTop>input::placeholder {
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.postshareTop>input:focus {
+    outline: none;
+}
+
+.postshareTop>button {
+    background-color: rgb(253, 199, 99);
+    padding: 8px 12px;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+}
+
+.postshareBottom {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+.postshareIcons>input {
+    display: none;
+}
+
+.postshareIcons {
+    display: flex;
+    align-items: center;
+}
+
+.postshareicon {
+    font-size: 25px;
+    margin: 0 5px;
+    color: rgb(73, 71, 71);
+    cursor: pointer;
+    padding: 3px 5px;
+    transition: 0.3s ease;
+}
+
+.previewImage{
+    display: flex;
+    flex-direction: column;
+}
+
+.previewImage>img {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.postshare .crossIcon{
+    position: absolute;
+    right: 30px;
+    font-size: 20px;
+}

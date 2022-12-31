@@ -1,0 +1,8 @@
+.profileMiddle{
+    flex: 2;
+    overflow: scroll;
+}
+
+.middle{
+    margin-top: 1rem;
+}

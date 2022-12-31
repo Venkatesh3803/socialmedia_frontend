@@ -1,0 +1,6 @@
+.profileLeft{
+    flex: 1;
+    flex-direction: column;
+    position: relative;
+    overflow-y: scroll;
+}

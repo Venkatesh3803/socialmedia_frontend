@@ -1,0 +1,56 @@
+.infoCard{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 1rem auto;
+    height: 45vh;
+    width: 75%;
+    border-radius: 8px;
+    padding: 8px;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+    border: 0.5px solid gray;
+    background-color: rgb(248, 249, 251);
+}
+
+.infoCard>h3{
+    margin: 10px 25px;
+    font-size: 18px;
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 3rem;
+}
+
+.infoprofile{
+    position: absolute;
+    padding: 15px 25px;
+    right: 10px;
+    top: 25px;
+}
+
+
+.infoNames{
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+}
+
+.infoNames>img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.logout{
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    border-radius: 5px;
+    padding: 5px 12px;
+}

@@ -1,0 +1,124 @@
+.navber {
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    background-color: rgb(225, 225, 220);
+    top: 0;
+    position:sticky;
+    z-index: 999;
+}
+
+.logo {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    margin: 0 15px;
+}
+
+.logoIcon {
+    font-size: 28px;
+    color: orange;
+    padding: 5px 8px;
+    cursor: pointer;
+}
+
+.logo>span {
+    color: rgb(73, 71, 71);
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+.search {
+    display: flex;
+    flex: 2.2;
+    align-items: center;
+    justify-content: center;
+}
+
+.search>input {
+    width: 65%;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    margin-right: 3px;
+}
+
+.search>input::placeholder {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+}
+
+.search>input:focus {
+    outline: none;
+}
+
+.searchIcon{
+    font-size: 26px;
+    color: orange;
+    padding: 2px 8px;
+    cursor: pointer;
+    background-color: rgb(0, 0, 255);
+    border-radius: 8px;
+}
+
+.registration{
+    display: flex;
+    position: relative;
+    flex: 0.8;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icons{
+    display: flex;
+    position: relative;
+}
+
+.registrationIcon{
+    font-size: 25px;
+    margin: 0 5px;
+    color:rgb(73, 71, 71);
+    cursor: pointer;
+    padding: 5px 8px;
+    transition: 0.3s ease;
+}
+.registrationIcon:hover{
+    background-color: #faf9f9d0;
+    border-radius: 40%; 
+}
+.active{
+    background-color: #faf9f9d0;
+    border-radius: 40%; 
+}
+.user{
+    display: flex;
+}
+
+.user>img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    position: relative;
+}
+.bridge{
+    background-color:rgb(238, 59, 59);
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    z-index: 1;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.bridge>span{
+    padding: 2px;
+    color: white;
+    font-size: 12px;
+}

@@ -1,0 +1,6 @@
+.middlePage{
+    flex: 2.2;
+    position: relative;
+    overflow: scroll;
+    padding: 1rem 0;
+}

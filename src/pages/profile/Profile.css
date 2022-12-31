@@ -1,0 +1,11 @@
+.profile{
+    display: flex;
+    position: relative;
+    background-color: rgb(233, 250, 247);
+    height: 92vh;
+    overflow: scroll;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}

@@ -1,0 +1,11 @@
+.leftside{
+    flex: 1;
+    flex-direction: column;
+    position: relative;
+    overflow-y: scroll;
+    padding: 1rem 0;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}

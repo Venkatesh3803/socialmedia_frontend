@@ -1,0 +1,75 @@
+.requests{
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    width: 90%;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+.requests>h3{
+   
+    color: rgb(87, 84, 84);
+}
+
+.resquestBox{
+    border: 1px solid gray;
+    background-color: rgb(225, 236, 246);
+    padding: 10px 12px;  
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.resquestInfo{
+    display: flex;
+    align-items: center;
+}
+
+.resquestInfo>img{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 15px;
+    object-fit: cover;
+}
+.resquestInfo>p{
+    font-weight: 600;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.resquestInfo>p>span{
+    color: rgb(10, 3, 3);
+    font-size: 13px;
+    font-weight: 400;
+    cursor: auto;
+}
+
+.requestbutton{
+  
+    margin-bottom: 0.5rem;
+}
+.requestaccept{
+    background: blue;
+    color: white;
+    border-radius: 8px;
+    padding: 5px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: 1px solid gray;
+}
+.requestdelete{
+    background: white;
+    color: black;
+    border-radius: 8px;
+    padding: 5px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: 1px solid gray;
+}
+
+
