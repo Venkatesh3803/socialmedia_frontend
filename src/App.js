@@ -5,6 +5,7 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
+import Chat from "./pages/chat/chat";
 
 import Home from "./pages/home/Home";
 import Information from "./pages/information/information";
@@ -21,9 +22,10 @@ function App() {
         <Route path="/" element={user ? <Navigate to="/home" /> : <Navigate to="auth" />} />
         <Route path="/home" element={user ? <Home /> : <Navigate to="../auth" />} />
         <Route path="/auth" element={user ? <Navigate to="../information" /> : <Auth />} />
-        <Route path="/profile/:username" element={user ? <Profile /> : <Navigate to="auth" />} />
+        <Route path="/profile/:username" element={user ? <Profile /> : <Navigate to="..auth" />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
-        <Route path="information" element = {<Information/>}/>
+        <Route path="/information" element = {<Information/>}/>
+        <Route path="/chat" element = {<Chat/>}/>
       </Routes>
     </>
   );

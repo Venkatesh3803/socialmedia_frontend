@@ -2,50 +2,63 @@ import { Modal, useMantineTheme } from '@mantine/core';
 import axios from 'axios';
 import { useState } from 'react';
 import "./Model.css"
+import {toast} from "react-toastify"
 
 function Model({ modelOpen, setModelOpen, user }) {
-    const { password, ...others } = user
     const theme = useMantineTheme();
-    const [formData, setFormData] = useState(others)
     const [profilePic, setProfilePic] = useState("")
-    const [coverPic, setCoverPic] = useState("")
+    const [firstname, setFirstname] = useState("")
+    const [lastname, setLastname] = useState("")
+    const [livesIn, setLivesIn] = useState("")
+    const [profession, setProfession] = useState("")
+    const [worksAt, setWorksAt] = useState("")
+    const [gender, setGender] = useState("")
+    const [relationship, setRelationship] = useState("")
+    const [password, setPassword] = useState("")
+
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        if (e.target.name === "firstname") {
+            setFirstname(e.target.value)
+        } else if (e.target.name === "lastname") {
+            setLastname(e.target.value)
+        } else if (e.target.name === "profession") {
+            setProfession(e.target.value)
+        } else if (e.target.name === "livesin") {
+            setLivesIn(e.target.value)
+        } else if (e.target.name === "worksat") {
+            setWorksAt(e.target.value)
+        } else if (e.target.name === "gender") {
+            setGender(e.target.value)
+        } else if (e.target.name === "relationship") {
+            setRelationship(e.target.value)
+        }
     };
-
     const handleProfile = (e) => {
         const file = e.target.files[0]
         setFileToBase(file);
         console.log(file)
     }
-    const handleCover = (e) => {
-        const file = e.target.files[0]
-        setFileToBase(file);
-        console.log(file)
-    }
-
 
     const setFileToBase = (file) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onloadend = () => {
             setProfilePic(reader.result);
-            setCoverPic(reader.result)
+          
         }
     }
-
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         const res = await axios.put(`http://localhost:5000/api/user/${user._id}`, {
-            currentUserId: user._id,
-            formData,
+            currentUserId: user._id, firstname, lastname, profession, livesIn, worksAt, gender, relationship,
             profilePic,
-            coverPic
+        
         })
-        return res.data
-
+        await res.data
+        if (res.data.message === "Updated Sucessfully") {
+            toast.success("Updated Sucessfully")
+        }
     }
 
     return (
@@ -64,27 +77,27 @@ function Model({ modelOpen, setModelOpen, user }) {
                     </div>
                     <form onSubmit={handleSubmit} className="modelForm">
                         <div className="fristName">
-                            <input type="text" placeholder='First name' name="firstname" onChange={handleChange} value={formData.firstname} />
-                            <input type="text" placeholder='Last name' name="lastname" onChange={handleChange} value={formData.lastname} />
+                            <input type="text" placeholder='First name' name="firstname" onChange={handleChange} value={firstname} />
+                            <input type="text" placeholder='Last name' name="lastname" onChange={handleChange} value={lastname} />
                         </div>
 
                         <span>Info</span>
                         <div className="fristName">
-                            <input type="text" placeholder='WorksAt' name="worksAt" value={formData.worksAt} />
-                            <input type="text" placeholder='Profession' name="Profession" value={formData.profession} />
+                            <input type="text" placeholder='WorksAt' onChange={handleChange} name="worksat" value={worksAt} />
+                            <input type="text" placeholder='Profession' onChange={handleChange} name="profession" value={profession} />
+                            <input type="text" placeholder='gender' onChange={handleChange} name="gender" value={gender} />
                         </div>
                         <div className="fristName">
-                            <input type="text" placeholder='city' name="livesIn" onChange={handleChange} value={formData.livesIn} />
-                            <input type="text" placeholder='Relationship status' name="relationship" onChange={handleChange} value={formData.relationship} />
+                            <input type="text" placeholder='city' name="livesin" onChange={handleChange} value={livesIn} />
+                            <input type="text" placeholder='Relationship status' name="relationship" onChange={handleChange} value={relationship} />
                         </div>
                         <div className="fristName">
                             <input type="password" placeholder='Password' name="password" value={password} />
                         </div>
                         <div className="image">
                             Profile pic
-                            <input type="file" name="profilepic" onChange={handleProfile} value={formData.profilePic}/>
-                            cover pic
-                            <input type="file" name="coverpic" onChange={handleCover} value={formData.coverPic}/>
+                            <input type="file" name="profilepic" onChange={handleProfile} />
+                        
                         </div>
                         <button className='submit' type='submit'>Update</button>
                     </form>

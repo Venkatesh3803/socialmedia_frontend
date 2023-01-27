@@ -23,7 +23,7 @@ const Infocard = () => {
     }, [username])
 
     const [modelOpen, setModelOpen] = useState(false)
-console.log(user)
+
     
     return (
         <div className='infoCard'>
@@ -44,27 +44,39 @@ console.log(user)
                 </div>
             </div>
             <div className="infoNames">
+                <b>First Name :-</b>
+                <span>
+                    {user?.firstname}
+                </span>
+            </div>
+            <div className="infoNames">
+                <b>Last Name :-</b>
+                <span>
+                    {user?.lastname}
+                </span>
+            </div>
+            <div className="infoNames">
                 <b>Gender :-</b>
                 <span>
-                    Male
+                    {user?.gender}
                 </span>
             </div>
             <div className="infoNames">
                 <b>Profession :-</b>
                 <span>
-                    Web Designer
+                  {user?.profession}
                 </span>
             </div>
             <div className="infoNames">
                 <b>Relationship :-</b>
                 <span>
-                    single
+                    {user?.relationship}
                 </span>
             </div>
             <div className="infoNames">
                 <b>Lives In :-</b>
                 <span>
-                    United states
+                   {user?.livesIn}
                 </span>
             </div>
             {currentUser === username &&

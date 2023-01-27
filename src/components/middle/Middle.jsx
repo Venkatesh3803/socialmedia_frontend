@@ -1,6 +1,7 @@
 import { Post } from "../post/Post"
 import Postshare from "../postshare/Postshare"
 import Story from "../story/Story"
+
 import "./Middle.css"
 
 const Middle = () => {

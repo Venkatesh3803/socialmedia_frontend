@@ -6,15 +6,17 @@ import { MdOutlineCancel } from "react-icons/md";
 import profileimg from '../../image/profileimg.jpg'
 import { useRef, useState } from "react";
 import axios from "axios"
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux"
+import { toast } from "react-toastify"
+
+
 
 const Postshare = () => {
-    const user = useSelector((state)=> state.user.user)
+    const user = useSelector((state) => state.user.user)
     const [image, setImage] = useState(null);
     const [desc, setDesc] = useState("")
-    const [postData, setPostData] = useState("")
     const imageref = useRef();
-   
+
 
     const onChangeImage = (event) => {
         if (event.target.files && event.target.files[0]) {
@@ -23,8 +25,8 @@ const Postshare = () => {
             console.log(file)
         }
     }
-    const handleChange =(e)=>{
-        if(e.target.name === "desc"){
+    const handleChange = (e) => {
+        if (e.target.name === "desc") {
             setDesc(e.target.value)
         }
     }
@@ -36,20 +38,23 @@ const Postshare = () => {
         }
     }
 
-    const reset = () =>{
+    const reset = () => {
         setImage(null);
         setDesc("")
     }
+
+
     const handleSubmit = async () => {
         const res = await axios.post("http://localhost:5000/api/post", {
             userId: user._id,
             desc: desc,
             image
         })
-        setPostData(res.data)
+        await res.data
+        toast.success(res.data.message)
         reset()
     }
-
+   
 
     return (
         <>
@@ -60,7 +65,7 @@ const Postshare = () => {
                         onChange={handleChange}
                         value={desc}
                     />
-                    <button onClick={()=>handleSubmit()}>post</button>
+                    <button onClick={handleSubmit}>post</button>
                 </div>
                 <div className="postshareBottom">
                     <div className="postshareIcons"
@@ -87,7 +92,7 @@ const Postshare = () => {
                 {image && (
                     <div className="previewImage">
                         <MdOutlineCancel className="crossIcon" onClick={() => setImage(null)} />
-                        <img src={image} alt="" />
+                        <img src={image} required alt="" />
                     </div>
                 )}
             </div>

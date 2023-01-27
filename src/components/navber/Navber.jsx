@@ -10,7 +10,6 @@ const Navber = () => {
         <div className="navber">
             <Link to="/" style={{ textDecoration: "none" }}>
                 <div className="logo" >
-
                     <AiFillSkype className="logoIcon" />
                     <span>Soacial Media.</span>
                 </div>
@@ -21,17 +20,22 @@ const Navber = () => {
             </div>
             <div className="registration">
                 <div className="icons">
-                    <AiFillHome className="registrationIcon active" />
-                    <AiFillMessage className="registrationIcon" />
+                    <Link to={"/"}>
+                        <AiFillHome className="registrationIcon active" />
+                    </Link>
+                    <Link to={"../chat"}>
+                        <AiFillMessage className="registrationIcon" />
+                    </Link>
                     <div className="bridge" style={{ left: "80px" }}><span>10</span> </div>
+                 
                     <AiFillBell className="registrationIcon" />
                     <div className="bridge" style={{ left: "127px" }}><span>15</span></div>
                 </div>
 
-                <Link to ={`/profile/${user.username}`}>
-                <div className="user">
-                    <img src={profileimg} alt="" />
-                </div>
+                <Link to={`/profile/${user.username}`}>
+                    <div className="user">
+                        <img src={profileimg} alt="" />
+                    </div>
                 </Link>
             </div>
         </div>
