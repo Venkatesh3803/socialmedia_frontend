@@ -9,7 +9,7 @@ export const Post = ({ username }) => {
 
     useEffect(() => {
         const fetchingUserPost = async () => {
-            const res = username ? await axios.get(`http://localhost:5000/api/post/profile/${username}/`) : await axios.get(`http://localhost:5000/api/post/${user._id}/timeline`)
+            const res = username ? await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/post/profile/${username}/`) : await axios.get(`http://localhost:5000/api/post/${user._id}/timeline`)
             setPost(res.data.sort((a, b) => {
                 return new Date(b.createdAt) - new Date(a.createdAt)
             }))

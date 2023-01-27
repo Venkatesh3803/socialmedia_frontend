@@ -12,7 +12,7 @@ const Profileleft = () => {
     const [currentUser, setCurrentUser] = useState("")
     useEffect(() => {
         const currentUserData = async () => {
-            const res = await axios.get(`http://localhost:5000/api/user/singleuser?userid=${user._id}`)
+            const res = await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?userid=${user._id}`)
             setCurrentUser(res.data)
         }
         currentUserData()

@@ -6,7 +6,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux"
-import {toast} from "react-toastify"
+import { toast } from "react-toastify"
 
 
 const Profilecard = ({ Location, userId }) => {
@@ -16,27 +16,27 @@ const Profilecard = ({ Location, userId }) => {
 
     useEffect(() => {
         const FetchingUser = async () => {
-            const res = userId ? await axios.get(`http://localhost:5000/api/user/singleuser?userid=${userId}`) : await axios.get(`http://localhost:5000/api/user/singleuser?username=${username}`)
+            const res = userId ? await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?userid=${userId}`) : await axios.get(`http://localhost:5000/api/user/singleuser?username=${username}`)
             setUser(res.data)
         }
         FetchingUser()
     }, [username, userId])
 
-    const handleFollow = async() => {
-        const res =await axios.put(`http://localhost:5000/api/user/${currentUser._id}/follow`, {
+    const handleFollow = async () => {
+        const res = await axios.put(`https://socialmedia-backend-lypj.onrender.com/api/user/${currentUser._id}/follow`, {
             currentUserId: user._id
         })
-        toast.success(res.data,{
+        toast.success(res.data, {
             position: "bottom-center"
         })
     }
 
-    const handleUnFollow = async() => {
-        const res =await axios.put(`http://localhost:5000/api/user/${currentUser._id}/Unfollow`, {
+    const handleUnFollow = async () => {
+        const res = await axios.put(`https://socialmedia-backend-lypj.onrender.com/api/user/${currentUser._id}/Unfollow`, {
             currentUserId: user._id
         })
-        toast.success(res.data,{
-            position:"bottom-center"
+        toast.success(res.data, {
+            position: "bottom-center"
         })
     }
 
@@ -73,7 +73,7 @@ const Profilecard = ({ Location, userId }) => {
                                 <p>
                                     <b>Posts</b>
                                 </p>
-                                <span>{}</span>
+                                <span>{ }</span>
                             </div>
                         </>
                     )}
@@ -92,6 +92,9 @@ const Profilecard = ({ Location, userId }) => {
                         :
                         <button onClick={handleFollow} className="followbtn">Follow</button>
                     }
+                        <Link to={"../chat"}>
+                            <button className="messagebtn">message</button>
+                        </Link>
                     </>
                 )}
             </div>

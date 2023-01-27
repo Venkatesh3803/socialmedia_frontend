@@ -16,14 +16,14 @@ const PersonData = ({ item, currentUser }) => {
 
     const handleFollow = async () => {
         if (!follow) {
-            const res = await axios.put(`http://localhost:5000/api/user/${user._id}/follow`, {
+            const res = await axios.put(`https://socialmedia-backend-lypj.onrender.com/api/user/${user._id}/follow`, {
                 currentUserId: item._id
             })
             toast(res.data, {
                 position: "bottom-center"
             })
         } else {
-            const res = await axios.put(`http://localhost:5000/api/user/${user._id}/Unfollow`, {
+            const res = await axios.put(`https://socialmedia-backend-lypj.onrender.com/api/user/${user._id}/Unfollow`, {
                 currentUserId: item._id
             })
             toast.success(res.data, {

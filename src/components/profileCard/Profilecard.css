@@ -99,7 +99,19 @@ hr{
     cursor: pointer;
     transition: all;
 }
-
+.messagebtn{
+    padding: 8px 15px;
+    width: 25%;
+    border-radius: 12px;
+    background: orange;
+    color: white;
+    font-size: 15px;
+    align-self :end;
+    cursor: pointer;
+    transition: all;
+    position: absolute;
+    bottom: 22px;
+}
 .followbtn:hover{
 background: rgb(249, 201, 110);
 }

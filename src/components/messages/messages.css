@@ -1,0 +1,27 @@
+.message {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 8px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.messages {
+    background-color: aquamarine;
+    padding: 8px;
+    border-radius: 8px;
+    width: 65%;
+}
+
+.own {
+    background-color: rgb(234, 255, 127);
+    padding: 8px;
+    border-radius: 8px;
+    width: 65%;
+    align-self: flex-end;
+}
+
+.time {
+    margin-top: 12px;
+}

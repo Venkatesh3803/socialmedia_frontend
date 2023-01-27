@@ -16,7 +16,7 @@ const Infocard = () => {
     const currentUser = useSelector(state => state.user.user.username)
     useEffect(() => {
         const FetchingUser = async () => {
-            const res = await axios.get(`http://localhost:5000/api/user/singleuser?username=${username}`)
+            const res = await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?username=${username}`)
             setUser(res.data)
         }
         FetchingUser()

@@ -22,7 +22,7 @@ const PostData = ({ item }) => {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const res = await axios.get(`http://localhost:5000/api/user/singleuser?userid=${item.userId}`);
+            const res = await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?userid=${item.userId}`);
             setUser(res.data);
         };
         fetchUser();
@@ -31,7 +31,7 @@ const PostData = ({ item }) => {
 
     const handleLike = async () => {
         try {
-            const res = await axios.put("http://localhost:5000/api/post/" + item._id + "/like", { userId: currentUser._id });
+            const res = await axios.put("https://socialmedia-backend-lypj.onrender.com/api/post/" + item._id + "/like", { userId: currentUser._id });
             toast.success(res.data, {
                 position: "bottom-center"
             })

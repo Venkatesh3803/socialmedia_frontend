@@ -45,7 +45,7 @@ const Postshare = () => {
 
 
     const handleSubmit = async () => {
-        const res = await axios.post("http://localhost:5000/api/post", {
+        const res = await axios.post("https://socialmedia-backend-lypj.onrender.com/api/post", {
             userId: user._id,
             desc: desc,
             image
@@ -71,7 +71,7 @@ const Postshare = () => {
                     <div className="postshareIcons"
                         onClick={() => imageref.current.click()}>
                         <HiOutlinePhotograph className="postshareicon" />
-                        <span>Photo</span>
+                        <span style={{cursor:"pointer"}}>Photo</span>
                         <input type="file" ref={imageref} onChange={onChangeImage} />
                     </div>
                     <div className="postshareIcons"

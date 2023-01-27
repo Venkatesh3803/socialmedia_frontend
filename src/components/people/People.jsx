@@ -13,7 +13,7 @@ const People = () => {
     useEffect(() => {
         const fetchingAllUsers = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/user/getallusers");
+                const res = await axios.get("https://socialmedia-backend-lypj.onrender.com/api/user/getallusers");
                 setPeople(res.data)
             } catch (error) {
                 console.log(error)
@@ -24,7 +24,7 @@ const People = () => {
     
     useEffect(() => {
         const currentUserData = async () => {
-            const res = await axios.get(`http://localhost:5000/api/user/singleuser?userid=${user._id}`)
+            const res = await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?userid=${user._id}`)
             setCurrentUser(res.data)
         }
         currentUserData()

@@ -48,7 +48,7 @@ const Information = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const res = await axios.put(`http://localhost:5000/api/user/${user._id}`, {
+        const res = await axios.put(`https://socialmedia-backend-lypj.onrender.com/api/user/${user._id}`, {
             currentUserId: user._id, profession, livesIn, worksAt, gender, relationship,
             profilePic,
         })

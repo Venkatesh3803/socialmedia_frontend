@@ -17,7 +17,7 @@ const Friends = ({ userId }) => {
 
     useEffect(() => {
         const currentUserData = async () => {
-            const res = await axios.get(`http://localhost:5000/api/user/singleuser?userid=${userId}`)
+            const res = await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?userid=${userId}`)
             setCurrentUser(res.data)
         }
         currentUserData()
@@ -25,14 +25,14 @@ const Friends = ({ userId }) => {
 
     const handlefollow = async () => {
         if (!follow) {
-            const res = await axios.put(`http://localhost:5000/api/user/${user._id}/unfollow`, {
+            const res = await axios.put(`https://socialmedia-backend-lypj.onrender.com/api/user/${user._id}/unfollow`, {
                 currentUserId: userId
             })
             toast.success(res.data, {
                 position: "bottom-center"
             })
         } else {
-            const res = await axios.put(`http://localhost:5000/api/user/${user._id}/follow`, {
+            const res = await axios.put(`https://socialmedia-backend-lypj.onrender.com/api/user/${user._id}/follow`, {
                 currentUserId: userId
             })
             toast.success(res.data, {

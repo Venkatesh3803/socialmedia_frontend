@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export const fetchingUsersPost = createAsyncThunk("fetchinguserpost", async ( {userId} ) => {
-        const res = await fetch("http://localhost:5000/api/post/timeline/all", {
+        const res = await fetch("https://socialmedia-backend-lypj.onrender.com/api/post/timeline/all", {
             method: "get",
             userId: userId
         });
