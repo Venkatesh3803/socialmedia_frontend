@@ -80,20 +80,23 @@ export const authSlice = createSlice({
       state.loading = true
     },
     [loginUser.fulfilled]: (state, action) => {
-      
+
       state.loading = false;
       state.user = action.payload.others
       state.token = action.payload.others.token
       if (action.payload.message === "Login Sucessfully") {
-        toast.success("login Sucess",{
-          position:"bottom-center"
+        toast.success("login Sucess", {
+          position: "bottom-center"
         })
       } else {
         toast.error(action.payload.message)
       }
-
-      localStorage.setItem("user", JSON.stringify(action.payload.others))
-      localStorage.setItem("token", action.payload.others.token)
+      if (action.payload.others) {
+        localStorage.setItem("user", JSON.stringify(action.payload.others))
+      }
+      if (action.payload.others.token) {
+        localStorage.setItem("token", action.payload.others.token)
+      }
 
     },
     [loginUser.rejected]: (state, action) => {

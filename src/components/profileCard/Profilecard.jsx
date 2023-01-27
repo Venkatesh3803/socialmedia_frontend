@@ -16,7 +16,7 @@ const Profilecard = ({ Location, userId }) => {
 
     useEffect(() => {
         const FetchingUser = async () => {
-            const res = userId ? await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?userid=${userId}`) : await axios.get(`http://localhost:5000/api/user/singleuser?username=${username}`)
+            const res = userId ? await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?userid=${userId}`) : await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?username=${username}`)
             setUser(res.data)
         }
         FetchingUser()
