@@ -20,7 +20,7 @@ const Story = () => {
                     {Stories.map((items) => {
                         return (
                             <>
-                                <img onClick={() => setStory(!story)} src={items.profileimg} alt="" />
+                                <img onClick={() => setStory(true)} src={items.profileimg} alt="" />
                                 <div className="story_img">
                                     <img src={items.storyimg} alt="" />
                                 </div>
@@ -32,8 +32,8 @@ const Story = () => {
             </div>
             {story &&
                 <div className="display">
-                    <img src="https://images.pexels.com/photos/14437082/pexels-photo-14437082.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="" />
-
+                    <img src="https://images.pexels.com/photos/1374067/pexels-photo-1374067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+                    <span onClick={()=> setStory(false)}className='cross'>X</span>
                 </div>
             }
         </>

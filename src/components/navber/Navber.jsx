@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 
 const Navber = () => {
     const user = useSelector((state) => state.user.user)
+    
     return (
         <div className="navber">
             <Link to="/" style={{ textDecoration: "none" }}>
@@ -23,7 +24,7 @@ const Navber = () => {
                     <Link to={"/"}>
                         <AiFillHome className="registrationIcon active" />
                     </Link>
-                    <Link to={"../chat"}>
+                    <Link to={`../chat/${user._id}`}>
                         <AiFillMessage className="registrationIcon" />
                     </Link>
                     <div className="bridge" style={{ left: "80px" }}><span>10</span> </div>

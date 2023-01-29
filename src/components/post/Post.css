@@ -17,6 +17,7 @@
     align-items: center;
     margin-bottom: 0.5rem;
     cursor: pointer;
+   
 }
 
 .itemItems {
@@ -102,7 +103,7 @@
 }
 
 .comments {
-    background-color: rgb(230, 224, 224);
+    background-color: rgb(186, 182, 182);
     position: absolute;
     top: 99%;
     right: 10px;
@@ -112,12 +113,14 @@
     border-radius: 8px;
     display: flex;
     gap: 100px;
+    z-index: 5;
 }
 
 .commenttext {
     margin-left: 10px;
     font-size: 14px;
     border: 1px solid gray;
-    padding: 2px 5px;
+    padding: 6px 15px;
     border-radius: 2px;
+    margin-left: 2rem;
 }

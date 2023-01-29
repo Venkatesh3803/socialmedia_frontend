@@ -17,6 +17,9 @@ export const Post = ({ username }) => {
         }
         fetchingUserPost()
     }, [user._id, username])
+
+    
+
     return (
         <div className="post">
             {post?.map((items) => {

@@ -7,7 +7,6 @@ const Conversations = ({ conversation, currentUser }) => {
     const [friend, setFriend] = useState(null)
     useEffect(() => {
         let friend = conversation.members.find(f => f !== currentUser)
-
         const fetchingUser = async () => {
             const res = await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?userid=${friend}`)
             setFriend(res.data)
@@ -16,17 +15,14 @@ const Conversations = ({ conversation, currentUser }) => {
     }, [conversation.members,currentUser])
 
     return (
-
         <div className="conversations">
             <div className="conversationprofile">
                 <img src={friend?.profilePic.url} alt="" />
-                <div className="chatinfo">
-                    <span>username:-</span>
+                <div className="convUsername">
                     <span>{friend?.username}</span>
                 </div>
             </div>
         </div>
-
     )
 }
 

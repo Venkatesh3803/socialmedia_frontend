@@ -25,7 +25,7 @@ function App() {
         <Route path="/profile/:username" element={user ? <Profile /> : <Navigate to="..auth" />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route path="/information" element = {<Information/>}/>
-        <Route path="/chat" element = {<Chat/>}/>
+        <Route path="/chat/:id" element = {<Chat/>}/>
       </Routes>
     </>
   );

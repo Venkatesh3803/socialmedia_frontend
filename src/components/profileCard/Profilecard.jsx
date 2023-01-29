@@ -16,7 +16,8 @@ const Profilecard = ({ Location, userId }) => {
 
     useEffect(() => {
         const FetchingUser = async () => {
-            const res = userId ? await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?userid=${userId}`) : await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?username=${username}`)
+            const res = userId ? await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?userid=${userId}`)
+                : await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/user/singleuser?username=${username}`)
             setUser(res.data)
         }
         FetchingUser()
@@ -38,6 +39,14 @@ const Profilecard = ({ Location, userId }) => {
         toast.success(res.data, {
             position: "bottom-center"
         })
+    }
+
+    const handleConversation = async () => {
+        const res = await axios.post(`http://localhost:5000/api/conversation`, {
+            senderId: currentUser._id,
+            resevierId: user._id
+        })
+        return res.data
     }
 
     return (
@@ -92,8 +101,8 @@ const Profilecard = ({ Location, userId }) => {
                         :
                         <button onClick={handleFollow} className="followbtn">Follow</button>
                     }
-                        <Link to={"../chat"}>
-                            <button className="messagebtn">message</button>
+                        <Link to={`../chat/${currentUser._id}`}>
+                            <button onClick={handleConversation} className="messagebtn">message</button>
                         </Link>
                     </>
                 )}

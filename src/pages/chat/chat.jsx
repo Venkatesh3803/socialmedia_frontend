@@ -5,6 +5,7 @@ import Messages from '../../components/messages/messages'
 import Conversations from '../../components/conversation/conversations'
 import axios from "axios"
 import { useSelector } from 'react-redux'
+import { useRef } from 'react'
 
 const Chat = () => {
     const user = useSelector((state) => state.user.user)
@@ -12,6 +13,8 @@ const Chat = () => {
     const [currentChat, setCurrentChat] = useState(null)
     const [conversation, setConversation] = useState(false)
     const [text, setText] = useState("")
+    const scrollRef = useRef()
+
     useEffect(() => {
         const conversations = async () => {
             const res = await axios.get(`https://socialmedia-backend-lypj.onrender.com/api/conversation/${user._id}`)
@@ -30,17 +33,25 @@ const Chat = () => {
     }, [currentChat])
 
     const handleSubmit = async () => {
+
         const res = await axios.post("https://socialmedia-backend-lypj.onrender.com/api/message", {
             conversationId: currentChat,
             senderId: user._id,
             text: text
         })
-        console.log(res)
+        await res.data
+        setMessages([...messages, res.data])
+        setText("")
     }
+    useEffect(() => {
+        scrollRef.current?.scrollIntoView({ behavior: "smooth" })
+    }, [messages])
 
     return (
         <>
             <Navber />
+            <div className="blur" style={{ top: "25px", right: "50px" }}></div>
+            <div className="blur" style={{ bottom: "125px", left: "50px" }}></div>
             <div className='chat'>
                 <div className='chatleft'>
                     <div className="chatleftcontainer">
@@ -63,8 +74,8 @@ const Chat = () => {
                     </div>
                 </div>
 
-                    <div className='chatright'>
-                {currentChat ?
+                <div className='chatright'>
+                    {currentChat ?
                         <div className="chatrightcontainer">
                             <div className="chatprofile">
                                 <img src="https://images.pexels.com/photos/14431490/pexels-photo-14431490.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
@@ -76,7 +87,9 @@ const Chat = () => {
 
                             {messages.map((m) => {
                                 return (
-                                    <Messages message={m} own={m.senderId === user._id} />
+                                    <div ref={scrollRef}>
+                                        <Messages message={m} own={m.senderId === user._id} />
+                                    </div>
                                 )
                             })}
 
@@ -85,9 +98,9 @@ const Chat = () => {
                                 <button onClick={handleSubmit} className='sendbutton'>Send</button>
                             </div>
                         </div>
-                         : <span className='startconv'>Start Conversation</span>
-                        }
-                    </div>
+                        : <span className='startconv'>Start Conversation</span>
+                    }
+                </div>
             </div>
         </>
     )
